@@ -18,6 +18,12 @@ export class TodoList {
     return this.#data;
   }
 
+  // promisify so later on we can update this to call the backend
+  // and don't have to worry about updating the consumers
+  getItems() {
+    return Promise.resolve(this.#data);
+  }
+
   // singleton
   static instance = null;
 
